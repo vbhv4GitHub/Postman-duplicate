@@ -45,7 +45,7 @@
         <h3 class="my-3"> Welcome to PostMaster</h3>
 
         <!-- URL box -->
-        <div class="row g-3 align-items-center my-2">
+        <div class="row g-3 align-items-top my-2">
             <div class="col-2">
                 <label for="urlBox" class="col-form-label">URL</label>
             </div>
@@ -56,7 +56,7 @@
         </div>
 
         <!-- Radio buttons for selecting the request type. -->
-        <div class="row g-3 align-items-center my-2">
+        <div class="row g-3 align-items-top my-2">
             <div class="col-2">
                 <label for="urlBox" class="col-form-label">Request Method</label>
             </div>
@@ -99,40 +99,58 @@
         </div>
 
         <!-- Box for custom Parameters. -->
-        <div id="parameterBox" class="row g-3 align-items-center my-2">
+        <div id="parameterBox" class="row g-3 align-items-top my-2">
             <div class="col-2">
-                <label for="parametersPairs" class="col-form-label">Content</label>
+                <label for="parametersPairs" class="col-form-label my-2">Content</label>
             </div>
             <div class="col-10">
                 <div class="row g-3 align-items-center my-2">
-                    <div class="col-md-4">
-                        <input type="text" class="form-group" id="parameterKey1" placeholder="Enter Parameter 1 Key">
+                    <div class="col-5">
+                        <input type="text" class="form-control" id="parameterKey1" placeholder="Enter Parameter 1 Key">
                     </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-group" id="parameterValue1"
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="parameterValue1"
                             placeholder="Enter Parameter 1 Value">
                     </div>
-                    <button class="btn btn-sm btn-primary"> + </button>
+                    <div class="col-1">
+                        <button class="btn btn-sm btn-primary"> + </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Box for JSON parameters -->
-        <div id="requestJsonBox" class="row g-3 align-items-center my-2">
+        <div id="requestJsonBox" class="row g-3 align-items-top my-2">
             <div class="col-2">
                 <label for="jsonBox" class="col-form-label">JSON String</label>
             </div>
             <div class="col-10">
                 <div class="form-floating" id="requestJsonBox">
                     <textarea class="form-control" placeholder="Leave a comment here" id="requestJsonText"
-                        style="height: 100px"></textarea>
+                        style="height: 155px"></textarea>
                     <label for="jsonBox">Enter your JSON string here...</label>
                 </div>
             </div>
         </div>
 
         <!-- Submit Button -->
-        <button id="submit" class="btn btn-primary my-3">Submit</button>
+        <div class="d-flex justify-content-center">
+            <button id="submit" class="btn btn-primary my-3">Submit</button>
+        </div>
+
+        <!-- Response box -->
+        <div id="response" class="row g-3 align-items-top my-5">
+            <div class="col-2">
+                <label for="jsonBox" class="col-form-label">Response</label>
+            </div>
+            <div class="col-10">
+                <div class="form-floating" id="responseJsonTextLabel">
+                    <textarea class="form-control" id="responseJsonText" placeholder="Leave a comment here"
+                        style="height: 155px"></textarea>
+                    <label for="response">Your response will appear here...</label>
+                </div>
+            </div>
+        </div>
 
 
     </div>
