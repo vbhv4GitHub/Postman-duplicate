@@ -54,3 +54,19 @@ addParameters.addEventListener('click', () => {
     }
 });
 
+
+// Submitting the request using submit button.
+let submit = document.getElementById('submit');
+submit.addEventListener('click', () => {
+    // TODO: Prompt a message to the user asking him to be patient.
+    document.getElementById('responseJsonText').value = "Please wait... It might take up to few seconds.";
+
+    // Fetching all the values user has entered.
+    let url = document.getElementById('urlBox').value;
+    let requestType = document.querySelector("input[name='requestType']:checked").value;
+    let contentType = document.querySelector("input[name='contentType']:checked").value;
+
+    // console.log(url, requestType, contentType); // -> Delete later. For debugging purposes only.
+
+
+});
