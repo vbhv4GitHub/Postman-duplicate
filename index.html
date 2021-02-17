@@ -43,13 +43,99 @@
 
     <div class="container">
         <h3 class="my-3"> Welcome to PostMaster</h3>
-    </div>
 
-    <div class="container">
         <!-- URL box -->
-        
-    </div>
+        <div class="row g-3 align-items-center my-2">
+            <div class="col-2">
+                <label for="urlBox" class="col-form-label">URL</label>
+            </div>
+            <div class="col-10">
+                <input type="text" id="urlBox" class="form-control" aria-describedby="passwordHelpInline">
+                <div id="urlHelp" class="form-text">Make sure that you're entering a valid URL.</div>
+            </div>
+        </div>
 
+        <!-- Radio buttons for selecting the request type. -->
+        <div class="row g-3 align-items-center my-2">
+            <div class="col-2">
+                <label for="urlBox" class="col-form-label">Request Method</label>
+            </div>
+            <div class="col-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="requestType" id="get" value="GET" checked>
+                    <label class="get" for="exampleRadios1">
+                        GET
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="requestType" id="post" value="POST">
+                    <label class="post" for="exampleRadios2">
+                        POST
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Type Box -->
+        <div class="row g-3 align-items-center my-2">
+            <div class="col-2">
+                <label for="urlBox" class="col-form-label">Content Type</label>
+            </div>
+            <div class="col-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="contentType" id="json" value="jsonRadio" checked>
+                    <label class="json" for="exampleRadios1">
+                        JSON
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="contentType" id="parameters"
+                        value="paretersRadio">
+                    <label class="parameters" for="exampleRadios2">
+                        Custom Parameters
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Box for custom Parameters. -->
+        <div id="parameterBox" class="row g-3 align-items-center my-2">
+            <div class="col-2">
+                <label for="parametersPairs" class="col-form-label">Content</label>
+            </div>
+            <div class="col-10">
+                <div class="row g-3 align-items-center my-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-group" id="parameterKey1" placeholder="Enter Parameter 1 Key">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-group" id="parameterValue1"
+                            placeholder="Enter Parameter 1 Value">
+                    </div>
+                    <button class="btn btn-sm btn-primary"> + </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Box for JSON parameters -->
+        <div id="requestJsonBox" class="row g-3 align-items-center my-2">
+            <div class="col-2">
+                <label for="jsonBox" class="col-form-label">JSON String</label>
+            </div>
+            <div class="col-10">
+                <div class="form-floating" id="requestJsonBox">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="requestJsonText"
+                        style="height: 100px"></textarea>
+                    <label for="jsonBox">Enter your JSON string here...</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="submit" class="btn btn-primary my-3">Submit</button>
+
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
