@@ -67,6 +67,45 @@ submit.addEventListener('click', () => {
     let contentType = document.querySelector("input[name='contentType']:checked").value;
 
     // console.log(url, requestType, contentType); // -> Delete later. For debugging purposes only.
+    
+    // If user has used customer parameter option instead of json, we'll collect all the entries in an object
+    let data = {};
+    if (contentType == 'parameterRadio') {
+        for (i=0; i<addedParametersCount+1; i++) {
+            if (document.getElementById('parameterKey'+(i+1)) != undefined) {
+                let key = document.getElementById(`parameterKey${i+1}`);
+                let value = document.getElementById(`parameterValue${i+1}`);
+                data[key] = value;
+            }
+            else {
+                continue;
+            }
+        }
+        data = JSON.stringify(data);
+    }
+    else {
+        data = document.getElementById('requestJsonText').value;
+    }
 
+    console.log(url, requestType, contentType, data); // -> Delete later. For debugging purposes only.
 
+    // If the requestType is get, invoke fetch api to create a get request.
+    if(requestType=='GET') {
+        fetch(url, {
+            method: 'GET',
+        }).then(response=> response.text()).then((text) => {
+            document.getElementById('responseJsonText').value = text;
+        });
+    }
+    else {
+        fetch(url, {
+            method: 'POST',
+            body: data,
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }).then(response=> response.text()).then((text) => {
+            document.getElementById('responseJsonText').value = text;
+        });
+    }
 });
