@@ -89,6 +89,7 @@ submit.addEventListener('click', () => {
             method: 'GET',
         }).then(response => response.text()).then((text) => {
             document.getElementById('responsePrism').innerHTML = text;
+            Prism.highlightAll();
         });
     } else {
         fetch(url, {
@@ -99,6 +100,7 @@ submit.addEventListener('click', () => {
             }
         }).then(response => response.text()).then((text) => {
             document.getElementById('responsePrism').innerHTML = text;
+            Prism.highlightAll();
         });
     }
 });
