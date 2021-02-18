@@ -72,9 +72,9 @@ submit.addEventListener('click', () => {
     let data = {};
     if (contentType == 'parameterRadio') {
         for (i=0; i<addedParametersCount+1; i++) {
-            if (document.getElementById('parameterKey'+(i+1)) != undefined) {
-                let key = document.getElementById(`parameterKey${i+1}`);
-                let value = document.getElementById(`parameterValue${i+1}`);
+            if (document.getElementById(`parameterKey${i+1}`) != undefined) {
+                let key = document.getElementById(`parameterKey${i+1}`).value;
+                let value = document.getElementById(`parameterValue${i+1}`).value;
                 data[key] = value;
             }
             else {
