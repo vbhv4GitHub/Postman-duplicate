@@ -47,7 +47,7 @@ addParameters.addEventListener('click', () => {
     // Handling the event when user wants to delete a parameter pair field
     let deleteParameter = document.getElementsByClassName('deleteParameter');
     for (item of deleteParameter) {
-        item.addEventListener('click', (e)=> {
+        item.addEventListener('click', (e) => {
             // TODO: can add a confirmation box to prompt the user for the confirmation of deletion.
             e.target.parentElement.parentElement.parentElement.remove();
         });
@@ -59,53 +59,46 @@ addParameters.addEventListener('click', () => {
 let submit = document.getElementById('submit');
 submit.addEventListener('click', () => {
     // TODO: Prompt a message to the user asking him to be patient.
-    document.getElementById('responseJsonText').value = "Please wait... It might take up to few seconds.";
+    document.getElementById('responsePrism').innerHTML = "Please wait... It might take up to few seconds.";
 
     // Fetching all the values user has entered.
     let url = document.getElementById('urlBox').value;
     let requestType = document.querySelector("input[name='requestType']:checked").value;
     let contentType = document.querySelector("input[name='contentType']:checked").value;
 
-    // console.log(url, requestType, contentType); // -> Delete later. For debugging purposes only.
-    
-    // If user has used customer parameter option instead of json, we'll collect all the entries in an object
+
     let data = {};
     if (contentType == 'parameterRadio') {
-        for (i=0; i<addedParametersCount+1; i++) {
+        for (i = 0; i < addedParametersCount + 1; i++) {
             if (document.getElementById(`parameterKey${i+1}`) != undefined) {
                 let key = document.getElementById(`parameterKey${i+1}`).value;
                 let value = document.getElementById(`parameterValue${i+1}`).value;
                 data[key] = value;
-            }
-            else {
+            } else {
                 continue;
             }
         }
         data = JSON.stringify(data);
-    }
-    else {
+    } else {
         data = document.getElementById('requestJsonText').value;
     }
 
-    console.log(url, requestType, contentType, data); // -> Delete later. For debugging purposes only.
-
     // If the requestType is get, invoke fetch api to create a get request.
-    if(requestType=='GET') {
+    if (requestType == 'GET') {
         fetch(url, {
             method: 'GET',
-        }).then(response=> response.text()).then((text) => {
-            document.getElementById('responseJsonText').value = text;
+        }).then(response => response.text()).then((text) => {
+            document.getElementById('responsePrism').innerHTML = text;
         });
-    }
-    else {
+    } else {
         fetch(url, {
             method: 'POST',
             body: data,
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
-        }).then(response=> response.text()).then((text) => {
-            document.getElementById('responseJsonText').value = text;
+        }).then(response => response.text()).then((text) => {
+            document.getElementById('responsePrism').innerHTML = text;
         });
     }
 });
